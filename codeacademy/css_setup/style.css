@@ -32,3 +32,6 @@ p {
   .description h5 {
     color: teal;
   }
+  .main h5 {
+    color: rebeccapurple;
+  }
