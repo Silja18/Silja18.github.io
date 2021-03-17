@@ -13,6 +13,13 @@ p {
   .uppercase {
     text-transform: uppercase;
   }
-  #article-title {font-family: cursive;
-  text-transform: capitalize;}
+  .publish-time {
+    color: gray;
+  }
+  
+  #article-title {
+    font-family: cursive;
+    text-transform: capitalize;
+  }
+  
   
