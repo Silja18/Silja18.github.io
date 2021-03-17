@@ -30,6 +30,7 @@ body {
   }
   
   p {
+    font-weight: bold;
     font-size: 18px;
     font-family: Helvetica;
     color: AliceBlue;
@@ -78,4 +79,5 @@ body {
     float: left;
     width: 50px;
   }
+  
   
