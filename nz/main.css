@@ -3,9 +3,11 @@ body {
     margin: auto;
     font-family:Arial, Helvetica, sans-serif
 }
+
 header {
     text-align: center;
 }
+
 header p {
     text-align: right;
     font-weight: bold;
@@ -48,8 +50,9 @@ main figure img {
 #map {
 height: 360px;
 width: 100%;
-border: 1 px solid grey;
+border: 1px solid grey;
 }
+
 main ul {
     list-style-type: circle;
 }
