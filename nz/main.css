@@ -25,5 +25,5 @@ header nav img {
 }
 a: link,
 a: :visited {
-color: black;
+    color: black;
 }
