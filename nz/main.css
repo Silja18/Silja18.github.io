@@ -71,3 +71,13 @@ footer {
 .ml-3 {
     margin-bottom: 0.3em;
 }
+
+@media screen and (max-width: 900px) {
+    mein {max-width: 90%;
+    }
+}
+@media screen and (max-width: 1280px) {
+header img {
+    width: 100vw;
+    }
+}
