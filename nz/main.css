@@ -73,11 +73,13 @@ footer {
 }
 
 @media screen and (max-width: 900px) {
-    mein {max-width: 90%;
+    main {
+        max-width: 90%;
     }
 }
+
 @media screen and (max-width: 1280px) {
-header img.banner {
-    width: 100vw;
+    header img.banner {
+        width: 100vw;
     }
 }
