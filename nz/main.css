@@ -15,7 +15,7 @@ header p {
     
 }
 .white,
-.white a:link
+.white a:link,
 .white a:visited
 {
     color: white;
