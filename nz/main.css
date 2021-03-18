@@ -38,3 +38,7 @@ main {
 main p {
     text-align: justify;
 }
+main figure {
+    margin-left: 0;
+    width: 100%
+}
