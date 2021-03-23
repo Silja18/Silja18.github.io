@@ -3,9 +3,11 @@ body {
     margin: auto;
     font-family: 'Open Sans', sans-serif;
 }
+
 header {
     text-align: center;
 }
+
 header p {
     text-align: right;
     font-weight: bold;
@@ -13,58 +15,72 @@ header p {
     padding-right: 1em;
     margin-top: -2em;
 }
+
 .white,
 .white a:link,
-.white a:visited
- {
+.white a:visited {
     color: white;
 }
+
 header nav img {
     border-radius: 50%;
 }
+
 a:link,
 a:visited {
     color: black;
 }
+
 header address {
     font-size: 0.9em;
     font-style: italic;
 }
+
 main {
     max-width: 70%;
     margin: auto;
 }
+
 main p {
-    text-align: justify; 
+    text-align: justify;
     font-family: 'Roboto Condensed', sans-serif;
 }
+
 main figure {
     margin-left: 0;
     width: 100%;
 }
+
 main figure img {
     border: 1px solid black;
 }
+
 #map {
     height: 360px;
     width: 100%;
     border: 1px solid gray;
 }
+
 main ul {
     list-style-type: circle;
 }
+
 footer .next {
     float: right;
 }
+
 footer .back {
     float: left;
 }
+
 footer {
     padding: 1em 0 3em 0;
 }
+
 .mr-3 {
     margin-right: 0.3em;
 }
+
 .ml-3 {
     margin-left: 0.3em;
 }
@@ -74,6 +90,7 @@ footer {
     main {
         max-width: 90%;
     }
+
     figure img {
         width: 100%;
     }
