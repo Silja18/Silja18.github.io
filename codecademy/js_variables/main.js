@@ -1,3 +1,3 @@
-let changeMe = true;
-changeMe = false
-console.log (changeMe)
+onst entree = 'Enchiladas';
+console.log (entree);
+entree = 'Tacos'
