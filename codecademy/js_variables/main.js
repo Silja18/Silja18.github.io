@@ -1,6 +1,2 @@
-let gainedDollar = 3;
-gainedDollar++;
-let lostDollar = 50;
-lostDollar--;
-console.log(lostDollar)
-console.log (gainedDollar)
+let favoriteAnimal ="polar bears";
+console.log ('My favorite animal: '+ favoriteAnimal);
