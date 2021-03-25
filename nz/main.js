@@ -21,7 +21,7 @@ const map = L.map("map", {
 });
 console.log (ROUTE);
 for (let entry of ROUTE) {
-    console.log(entry);
+    //console.log(entry);
 
     let mrk = L.marker([ stop.lat, stop.lng ]).addTo(map);
     mrk.bindPopup(`
