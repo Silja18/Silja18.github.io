@@ -19,6 +19,7 @@ const map = L.map("map", {
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
     ]
 });
+
 console.log (ROUTE);
 for (let entry of ROUTE) {
     //console.log(entry);
@@ -40,3 +41,4 @@ if (entry.nr == 4) {
 //WMTS-Services werden für die Kacheln verwendet
 //consle.log(document,querySelector("#map")); um die Konsole zu checken
 console.log(document.querySelector("#map"));
+// <option value="Silja18">Omarama</option>
