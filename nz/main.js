@@ -24,7 +24,11 @@ let nav = document.querySelector('#navigation');
 console.log('Navigation HTML Element: ', nav);
 // console.log(ROUTE);
 ROUTE.sort((stop1, stop2) => {
-  return stop1.nr > stop2.nr;
+    if (stop1.nr > stop2.nr) {
+        return 1;
+      } else {
+        return -1;
+      }
 });
 for (let entry of ROUTE) {
   // console.log(entry);
@@ -40,7 +44,7 @@ for (let entry of ROUTE) {
 if (entry.nr == 4) {
     map.setView ([entry.lat, entry.lng], 13);
     mrk.openPopup();
-}
+    }
 }
 nav.options.selectedIndex = 22 - 1;
 nav.onchange = (evt) => {
