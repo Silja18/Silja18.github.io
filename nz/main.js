@@ -20,16 +20,14 @@ const map = L.map("map", {
     ]
 });
 
-let nav =document.querySelector("#navigation");
+let nav = document.querySelector('#navigation');
 console.log('Navigation HTML Element: ', nav);
 // console.log(ROUTE);
-
 ROUTE.sort((stop1, stop2) => {
-    return stop1.nr > stop2.nr
+  return stop1.nr > stop2.nr;
 });
-
 for (let entry of ROUTE) {
-    //console.log(entry);
+  // console.log(entry);
 
     nav.innerHTML += `
         <option value="${entry.user}">Stop ${entry.nr}: ${entry.name}</option>`;
@@ -50,6 +48,8 @@ nav.onchange = (evt) => {
     let username =options[selected].value;
     let link = `https://${username}.github.io/nz/index.html`;
     console.log(username, link);
+
+    window.location.href = link;
 };
 
 
