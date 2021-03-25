@@ -8,6 +8,6 @@ const map = L.map("map", {
 });
 
 let mrk = L.marker([-44.483333, 169.966667]) .addTo(map);
-
+mrk.bindPopup("Omarama").openPopup();
 //WMTS-Services werden für die Kacheln verwendet
 console.log(document.querySelector("#map"));
