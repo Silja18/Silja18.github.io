@@ -21,8 +21,8 @@ const map = L.map("map", {
 });
 
 let nav =document.querySelector("#navigation");
-console.log(nav);
-console.log (ROUTE);
+console.log('Navigation HTML Element: ', nav);
+// console.log(ROUTE);
 
 ROUTE.sort((stop1, stop2) => {
     return stop1.nr > stop2.nr
@@ -44,6 +44,12 @@ if (entry.nr == 4) {
     mrk.openPopup();
 }
 }
+nav.onchange = (evt) => {
+    console.log(evt.target.selectedIndex;
+        let options = evt.target.option;
+        let value = options [selected].value;
+        let link = `https://{username}`
+};
 
 
 
