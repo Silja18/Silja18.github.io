@@ -42,7 +42,7 @@ if (entry.nr == 4) {
     mrk.openPopup();
 }
 }
-nav.options
+nav.options.selectedIndex = 22 - 1;
 nav.onchange = (evt) => {
     let selected = evt.target.selectedIndex;
     let options = evt.target.options;
