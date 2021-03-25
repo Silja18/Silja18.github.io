@@ -22,11 +22,16 @@ const map = L.map("map", {
 console.log (ROUTE);
 for (let entry of ROUTE) {
     console.log(entry);
-    let mrk = L.marker([-44.483333, 169.966667]) .addTo(map);
-mrk.bindPopup(`
+
+    let mrk = L.marker([ stop.lat, stop.lng ]).addTo(map);
+    mrk.bindPopup(`
 <h4>Stop ${entry.nr}: ${entry.name}<h4>
 <p><i class="fas fa-external-link-alt"></i> <a href="${entry.wikipedia}">Read about stop in Wikipedia</a></p>
 `).openPopup();
+
+if (entry.nr ==4) {
+    mrk.openPopup();
+}
 }
 
 
