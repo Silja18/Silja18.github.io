@@ -23,13 +23,14 @@ console.log (ROUTE);
 for (let entry of ROUTE) {
     //console.log(entry);
 
-    let mrk = L.marker([ stop.lat, stop.lng ]).addTo(map);
+    let mrk = L.marker([ entry.lat, entry.lng ]).addTo(map);
     mrk.bindPopup(`
 <h4>Stop ${entry.nr}: ${entry.name}<h4>
-<p><i class="fas fa-external-link-alt"></i> <a href="${entry.wikipedia}">Read about stop in Wikipedia</a></p>
-`).openPopup();
+<p><i class="fas fa-external-link-alt"></i><a href="${entry.wikipedia}">Read about stop in Wikipedia</a></p>
+`);
 
-if (entry.nr ==4) {
+if (entry.nr == 4) {
+    map.setView ([entry.lat, entry.lng], 13);
     mrk.openPopup();
 }
 }
