@@ -45,10 +45,11 @@ if (entry.nr == 4) {
 }
 }
 nav.onchange = (evt) => {
-    console.log(evt.target.selectedIndex;
-        let options = evt.target.option;
-        let value = options [selected].value;
-        let link = `https://{username}`
+    let selected = evt.target.selectedIndex;
+    let options = evt.target.options;
+    let username =options[selected].value;
+    let link = `https://${username}.github.io/nz/index.html`;
+    console.log(username, link);
 };
 
 
