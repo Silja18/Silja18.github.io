@@ -12,7 +12,7 @@ let layerControl = L.control.layers({
     "BasemapAT.grau": basemapGray,
     "BasemapAT.orthofoto": L.tileLayer.provider('BasemapAT.orthofoto'),
     "BasemapAT.terrain": L.tileLayer.provider('BasemapAT.terrain'),
-    "BasemapAT.overlay": L.tileLayer.provider(' BasemapAT.overlay'),
+    "BasemapAT.overlay": L.tileLayer.provider('BasemapAT.overlay'),
     "BasemapAT.highdpi": L.tileLayer.provider('BasemapAT.highdpi'),
     "BasemapAT.overlay+ortho": L.layerGroup([
         L.tileLayer.provider('BasemapAT.orthofoto'),
@@ -22,7 +22,7 @@ let layerControl = L.control.layers({
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
 
-letawsLayer = L.featureGroup();
+let awsLayer = L.featureGroup();
 layerControl.addOverlay(awsLayer, "Wetterstationen Tirol");
 awsLayer.addTo(map);
 
@@ -41,6 +41,9 @@ fetch(awsUrl)
             <ul>
                 <li> Datum: ${formattedDate.toLocaleString ("de")}</li>
                 <li> Temperatur: ${station.properties.LT} C</li>
+                <li> Schneehöhe: ${station.properties.LT} </li>
+                <li> Luftfeuchtigkeit: ${station.properties.LT} </li>
+                <li> Seehöhe: ${station.properties.LT} </li>
             </ul>
             `);
             marker.addTo(awsLayer);
