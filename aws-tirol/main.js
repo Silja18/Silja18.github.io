@@ -19,3 +19,4 @@ let layerControl = L.control.layers({
         L.tileLayer.provider('Basemap.AT.overlay'),
     ])
 }).addTo(map);
+// https://lawine.tirol.gv.at/data/produkte/ogd.geojson
