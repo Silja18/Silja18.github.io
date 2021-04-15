@@ -19,4 +19,18 @@ let layerControl = L.control.layers({
         L.tileLayer.provider('Basemap.AT.overlay'),
     ])
 }).addTo(map);
-// https://lawine.tirol.gv.at/data/produkte/ogd.geojson
+// https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson
+
+let awUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
+fetch(awsUrl)
+    .then(response => response.json ())
+    .then(json =>   {
+    console.log('Daten konvertiert: ', response.json);
+    for (station of json.features) {
+        console.log('Station: ', station);
+        let marker =L-marker([station.geometry.coordinates [1],
+        station.geometry.coordinates[0]]
+        );
+        marker.addTo(map);
+    }
+})
