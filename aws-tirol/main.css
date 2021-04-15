@@ -1,13 +1,15 @@
 h2 {
     text-align: center;
 }
+
 #map {
     width: 90vw;
     height: 90vh;
     border: solid black 1px;
     margin: auto;
 }
-.snow-label {
+
+.snow-label, .wind-label {
     font-size: 1.25em;
     font-weight: bold;
     display: inline;
@@ -21,10 +23,10 @@ h2 {
         -1px -1px 0 white;
 }
 
-.snow-100 {
+.snow-100, .wind-10 {
     background-color: blue;
 }
 
-.snow-200 {
+.snow-200, .wind-20 {
     background-color: red;
 }
