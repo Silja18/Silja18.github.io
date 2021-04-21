@@ -31,7 +31,7 @@ let windLayer = L.featureGroup();
 
 let tempLayer = L.featureGroup();
 layerControl.addOverlay(tempLayer, "Temperatur (°C)");
- // tempLayer.addTo(map);
+// tempLayer.addTo(map);
 layerControl.addOverlay(windLayer, "Windgeschwindigkeit (km/h)");
 windLayer.addTo(map);
 
@@ -85,15 +85,15 @@ fetch(awsUrl)
                 if (station.properties.LT >= 0) {
                     highlightClass = 'temp-positive';
                 }
-                if (station,properties.LT < 0) {
+                if (station, properties.LT < 0) {
                     highlightClass = 'temp-negative';
                 }
-                let tempIcon = L.divIcon ({
+                let tempIcon = L.divIcon({
                     html: `<div class="temp-label ${highlightClass}">${station.properties.LT}</div>`
                 })
                 let tempMarker = L.marker([
                     station.geometry.coordinates[1],
-                    station.geometry.coordinates[0] 
+                    station.geometry.coordinates[0]
                 ], {
                     icon: tempIcon
                 });
