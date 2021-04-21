@@ -80,7 +80,25 @@ fetch(awsUrl)
                 snowMarker.addTo(snowLayer);
             }
             // Hier soll die Lufttemperatur eingefügt werden
-            
+            if (station.properties.LT) {
+                let highlightClass = '';
+                if (station.properties.LT >= 0) {
+                    highlightClass = 'temp-positive';
+                }
+                if (station,properties.LT < 0) {
+                    highlightClass = 'temp-negative';
+                }
+                let tempIcon = L.divIcon ({
+                    html: `<div class="temp-label ${highlightClass}">${station.properties.LT}</div>`
+                })
+                let tempMarker = L.marker([
+                    station.geometry.coordinates[1],
+                    station.geometry.coordinates[0] 
+                ], {
+                    icon: tempIcon
+                });
+                tempMarker.addTo(tempLayer);
+            }
             if (station.properties.WG) {
                 let windHighlightClass = '';
                 if (station.properties.WG > 10) {
