@@ -28,6 +28,10 @@ let snowLayer = L.featureGroup();
 layerControl.addOverlay(snowLayer, "Schneehöhen (cm)");
 // snowLayer.addTo(map);
 let windLayer = L.featureGroup();
+
+let tempLayer = L.featureGroup();
+layerControl.addOverlay(tempLayer, "Temperatur (°C)");
+ // tempLayer.addTo(map);
 layerControl.addOverlay(windLayer, "Windgeschwindigkeit (km/h)");
 windLayer.addTo(map);
 
@@ -75,6 +79,8 @@ fetch(awsUrl)
                 });
                 snowMarker.addTo(snowLayer);
             }
+            // Hier soll die Lufttemperatur eingefügt werden
+            
             if (station.properties.WG) {
                 let windHighlightClass = '';
                 if (station.properties.WG > 10) {
