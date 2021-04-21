@@ -9,7 +9,7 @@ h2 {
     margin: auto;
 }
 
-.snow-label, .wind-label {
+.snow-label, .wind-label, .temp-label {
     font-size: 1.25em;
     font-weight: bold;
     display: inline;
@@ -30,3 +30,11 @@ h2 {
 .snow-200, .wind-20 {
     background-color: red;
 }
+
+.temp-positive {
+    background-color: green; 
+}
+
+.temp-negative {
+    background-color: blue;
+} 
