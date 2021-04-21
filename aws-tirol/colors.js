@@ -88,32 +88,32 @@ const COLORS = {
         max: 10,
         col: "#ffffb2",
     }, {
-        min: 
-        max:
+        min: 11,
+        max: 25,
         col: "#b0ffbc",
     }, {
-        min:
-        max:
+        min: 26,
+        max: 50,
         col: "#8cffff",
     }, {
-        min:
-        max:
+        min: 51,
+        max: 100,
         col: "#19cdff",
     }, {
-        min:
-        max:
+        min: 101,
+        max: 200,
         col: "#1982ff",
     }, {
-        min: 
-        max:
+        min: 201,
+        max: 300,
         col: "#0f5abe",
     }, {
-        min:
-        max:
+        min: 301,
+        max: 400,
         col: "#784bff",
     }, {
-        min: 
-        max 
+        min: 401,
+        max: 600,
         col: "#cd0feb",
     },     
     ]
