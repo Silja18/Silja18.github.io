@@ -28,7 +28,59 @@ const COLORS = {
         max: 999,
         col: "#ff3232"
     }],
-    temperature: [
+    temperature: [{
+        min: -50,
+        max: -25,
+        col: "#9f80ff",
+    }, {
+        min: -24,
+        max: -20,
+        col: "#784cff",
+    },{
+        min: -19,
+        max: -15,
+        col: "#0f5abe",
+    }, {
+        min: -14,
+        max: -10,
+        col: "#1380ff",
+    }, {
+        min: -9,
+        max: -5,
+        col: "#19cdff",
+    }, {
+        min: -4,
+        max: 0,
+        col: "#8fffff",
+    }, {
+        min: 0,
+        max: 5,
+        col: "#b0ffbc",
+    }, {
+        min: 6,
+        max: 10,
+        col: "#ffff73",
+    }, {
+        min: 11,
+        max: 15,
+        col: "#ffbe7d",
+    }, {
+        min: 16,
+        max: 20,
+        col: "#ff9b41",
+    }, {
+        min: 21,
+        max: 25,
+        col: "#ff5a41",
+    }, {
+        min: 26,
+        max: 30,
+        col: "#ff1e23",
+    }, {
+        min: 31,
+        max: 35,
+        col: "#fa3c96",
+    }
         
     ],
     snowheight: [{
