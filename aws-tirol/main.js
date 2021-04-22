@@ -82,7 +82,7 @@ fetch(awsUrl)
             <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
             `);
             marker.addTo(overlays.stations);
-            if (station.properties.HS) {
+            if (typeof station.properties.HS == "number") {
                 let highlightClass = '';
                 if (station.properties.HS > 100) {
                     highlightClass = 'snow-100';
@@ -103,7 +103,6 @@ fetch(awsUrl)
                 });
                 snowMarker.addTo(overlays.snowheight);
             }
-            if (typeof station.properties.HS == "number")
             // Hier soll die Lufttemperatur eingefügt werden
             //if (station.properties.LT) {
               //  let highlightClass = '';
@@ -128,9 +127,9 @@ fetch(awsUrl)
             //}
            // if (typeof station.properties.LT == "number") {
            //     console.log(station.properties.LT)
-            // } -> Das muss eingefügt werden für die Temperatur wegen 0 Grad
+            // } -> Das muss eingefügt werden für die Temperatur wegen 0 Grad, aber oben!!
 
-            if (station.properties.WG) {
+            if (typeof station.properties.WG == "number") {
                 let windHighlightClass = '';
                 if (station.properties.WG > 10) {
                     windHighlightClass = 'wind-10';
@@ -151,13 +150,14 @@ fetch(awsUrl)
                 });
                 windMarker.addTo(overlays.windspeed);
             }
+            if (typeof station.properties.LT == "number") {
+                let marker = newLabel (station.geometry.coordinates, {
+                    value: station.properties.LT
+                });
+                marker.addTo(overlays.temperature);
+            }
         }
-        if (typeof station.properties.LT == "number") {
-            let marker = newLabel (station.geometry.coordinates, {
-                value: station.properties.LT
-            });
-            marker.addTo(map);
-        }
+        
         // set map view to all stations
         map.fitBounds(overlays.stations.getBounds());
     });
