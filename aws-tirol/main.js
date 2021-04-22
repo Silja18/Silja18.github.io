@@ -41,6 +41,13 @@ let layerControl = L.control.layers({
 }).addTo(map);
 overlays.temperature.addTo(map);
 
+// hier den Maßstab einbauen: 
+
+L.control.scale({
+    imperial: false
+}).addTo(map); 
+
+
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
 
 fetch(awsUrl)
