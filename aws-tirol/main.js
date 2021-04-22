@@ -9,6 +9,15 @@ let map = L.map("map", {
     ]
 });
 
+let overlays = {
+stations: L.featureGroup(),
+temperature: L.featureGroup(),
+snowheight: L.featureGroup(),
+windspeed: L.featureGroup(),
+winddirection: L.featureGroup(),
+};
+console.log(overlays.stations)
+
 let layerControl = L.control.layers({
     // https://leafletjs.com/reference-1.7.1.html#control-layers
     "BasemapAT.grau": basemapGray,
@@ -21,8 +30,14 @@ let layerControl = L.control.layers({
         L.tileLayer.provider('BasemapAT.overlay')
         // https://leafletjs.com/reference-1.7.1.html#tilelayer
     ])
+}, {
+    "Wetterstationen Tirol": overlays.stations,
+    "Temperatur (°C)":overlays.temperature,
+    "Schneehöhe (cm)":overlays.snowheight,
+    "Windgeschwindigkeit (km/h)":overlays.windspeed,
+    "Windrichtung":overlays.winddirection,
 }).addTo(map);
-
+overlays.temperature.addTo(map);
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
 
@@ -65,7 +80,7 @@ fetch(awsUrl)
             </ul>
             <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
             `);
-            marker.addTo(awsLayer);
+            marker.addTo(overlays);
             if (station.properties.HS) {
                 let highlightClass = '';
                 if (station.properties.HS > 100) {
@@ -85,30 +100,30 @@ fetch(awsUrl)
                 ], {
                     icon: snowIcon
                 });
-                snowMarker.addTo(snowLayer);
+                snowMarker.addTo(overlays.snowheight);
             }
             // Hier soll die Lufttemperatur eingefügt werden
-            if (station.properties.LT) {
-                let highlightClass = '';
-                if (station.properties.LT >= 0) {
-                    highlightClass = 'temp-positive';
-                }
-                if (station, properties.LT < 0) {
+            //if (station.properties.LT) {
+              //  let highlightClass = '';
+                //if (station.properties.LT >= 0) {
+                  //  highlightClass = 'temp-positive';
+              //  //}
+                //if (station, properties.LT < 0) {
                     highlightClass = 'temp-negative';
-                }
-                let tempIcon = L.divIcon({
+                //}
+                //let tempIcon = L.divIcon({
                     // https://leafletjs.com/reference-1.7.1.html#divicon
                     html: `<div class="temp-label ${highlightClass}">${station.properties.LT}</div>`
-                })
-                let tempMarker = L.marker([
+                //})
+                //let tempMarker = L.marker([
                     // https://leafletjs.com/reference-1.7.1.html#marker
-                    station.geometry.coordinates[1],
-                    station.geometry.coordinates[0]
-                ], {
+                  //  station.geometry.coordinates[1],
+                    // station.geometry.coordinates[0]
+                //], {
                     icon: tempIcon
-                });
-                tempMarker.addTo(tempLayer);
-            }
+                //});
+                // tempMarker.addTo(overlays.temperature); 
+            //}
             if (station.properties.WG) {
                 let windHighlightClass = '';
                 if (station.properties.WG > 10) {
@@ -128,9 +143,9 @@ fetch(awsUrl)
                 ], {
                     icon: windIcon
                 });
-                windMarker.addTo(windLayer);
+                windMarker.addTo(overlays.windspeed);
             }
         }
         // set map view to all stations
-        map.fitBounds(awsLayer.getBounds());
+        map.fitBounds(overlays.stations.getBounds());
     });
