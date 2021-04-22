@@ -94,18 +94,18 @@ fetch(awsUrl)
                   //  highlightClass = 'temp-positive';
               //  //}
                 //if (station, properties.LT < 0) {
-                    highlightClass = 'temp-negative';
+                  //  highlightClass = 'temp-negative';
                 //}
                 //let tempIcon = L.divIcon({
                     // https://leafletjs.com/reference-1.7.1.html#divicon
-                    html: `<div class="temp-label ${highlightClass}">${station.properties.LT}</div>`
+               //     html: `<div class="temp-label ${highlightClass}">${station.properties.LT}</div>`
                 //})
                 //let tempMarker = L.marker([
                     // https://leafletjs.com/reference-1.7.1.html#marker
                   //  station.geometry.coordinates[1],
                     // station.geometry.coordinates[0]
                 //], {
-                    icon: tempIcon
+                  //  icon: tempIcon
                 //});
                 // tempMarker.addTo(overlays.temperature); 
             //}
