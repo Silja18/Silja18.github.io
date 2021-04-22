@@ -51,7 +51,10 @@ let newLabel = (coords, options) => {
     let label = L.divIcon({
         html: `<div>${options.value}</div>`,
         className:"text-label",
-    })
+        let marker = L.marker([coords[1], coords[0]]);
+        console.log("Marker:", marker);
+        return marker;
+    };
   //  console.log("Koordinaten coords: ", coords);
   //  console.log("Optionsobjekt:", options);
     // let marker = L.marker([coords[1], coords[0]]);
