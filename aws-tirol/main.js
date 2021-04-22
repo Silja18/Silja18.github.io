@@ -41,21 +41,6 @@ overlays.temperature.addTo(map);
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
 
-let awsLayer = L.featureGroup();
-layerControl.addOverlay(awsLayer, "Wetterstationen Tirol");
-// awsLayer.addTo(map);
-let snowLayer = L.featureGroup();
-layerControl.addOverlay(snowLayer, "Schneehöhen (cm)");
-// snowLayer.addTo(map);
-let windLayer = L.featureGroup();
-
-let tempLayer = L.featureGroup();
-layerControl.addOverlay(tempLayer, "Temperatur (°C)");
-// tempLayer.addTo(map);
-layerControl.addOverlay(windLayer, "Windgeschwindigkeit (km/h)");
-windLayer.addTo(map);
-// -> alle oben: https://leafletjs.com/reference-1.7.1.html#featuregroup 
-
 fetch(awsUrl)
     .then(response => response.json())
     .then(json => {
@@ -80,7 +65,7 @@ fetch(awsUrl)
             </ul>
             <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
             `);
-            marker.addTo(overlays);
+            marker.addTo(overlays.stations);
             if (station.properties.HS) {
                 let highlightClass = '';
                 if (station.properties.HS > 100) {
