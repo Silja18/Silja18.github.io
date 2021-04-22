@@ -57,12 +57,14 @@ let getColor = (value, colorRamp) => {
     return "black";
 };
 
+// Die new label Funktion holt sich die Koordinaten usw, definiert die Farbe, ...
+// get Funktion holt sich die Farbe
 let newLabel = (coords, options) => {
     let color = getColor(options.value, options.colors);
     // console.log("Wert", options.value, "bekommt Farbe", color);
     let label = L.divIcon({
         html: `<div style="background-color:${color}">${options.value}</div>`,
-        className: "text-label"
+        className: "text-label" // mit der Klasse können wir das Format zuschreiben (div)
     })
     let marker = L.marker([coords[1], coords[0]], {
         icon: label,
@@ -97,6 +99,7 @@ fetch(awsUrl)
             </ul>
             <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
             `);
+           // hier haben wir die Market gestylt:
             marker.addTo(overlays.stations);
             if (typeof station.properties.HS == "number") {
                 let marker = newLabel (station.geometry.coordinates, {
