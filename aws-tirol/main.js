@@ -99,7 +99,7 @@ fetch(awsUrl)
             marker.addTo(overlays.stations);
             if (typeof station.properties.HS == "number") {
                 let marker = newLabel (station.geometry.coordinates, {
-                    value: station.properties.HS,
+                    value: station.properties.HS.toFixed(0),
                     colors: COLORS.snowheight
                 });
                 marker.addTo(overlays.snowheight);
@@ -108,7 +108,7 @@ fetch(awsUrl)
 
             if (typeof station.properties.WG == "number") {
                 let marker = newLabel (station.geometry.coordinates, {
-                    value: station.properties.WG,
+                    value: station.properties.WG.toFixed(0),
                     colors: COLORS.windspeed
                 });
                 marker.addTo(overlays.windspeed);
@@ -116,7 +116,7 @@ fetch(awsUrl)
 
             if (typeof station.properties.LT == "number") {
                 let marker = newLabel (station.geometry.coordinates, {
-                    value: station.properties.LT,
+                    value: station.properties.LT.toFixed(1),
                     colors: COLORS.temperature
                 });
                 marker.addTo(overlays.temperature);
