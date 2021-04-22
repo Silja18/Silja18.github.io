@@ -47,6 +47,13 @@ L.control.scale({
     imperial: false
 }).addTo(map); 
 
+let newLabel = (coords, options) => {
+    console.log("Koordinaten coords: ", coords);
+    console.log("Optionsobjekt:", options);
+    let marker = L.marker([coords[1], coords[0]]);
+    console.log("Marker:", marker);
+    return marker;
+};
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
 
@@ -96,10 +103,11 @@ fetch(awsUrl)
                 });
                 snowMarker.addTo(overlays.snowheight);
             }
+            if (typeof station.properties.HS == "number")
             // Hier soll die Lufttemperatur eingefügt werden
             //if (station.properties.LT) {
               //  let highlightClass = '';
-                //if (station.properties.LT >= 0) {
+                //if (station.properties.LT > 0) {
                   //  highlightClass = 'temp-positive';
               //  //}
                 //if (station, properties.LT < 0) {
@@ -118,6 +126,10 @@ fetch(awsUrl)
                 //});
                 // tempMarker.addTo(overlays.temperature); 
             //}
+           // if (typeof station.properties.LT == "number") {
+           //     console.log(station.properties.LT)
+            // } -> Das muss eingefügt werden für die Temperatur wegen 0 Grad
+
             if (station.properties.WG) {
                 let windHighlightClass = '';
                 if (station.properties.WG > 10) {
@@ -140,6 +152,16 @@ fetch(awsUrl)
                 windMarker.addTo(overlays.windspeed);
             }
         }
+        if (typeof station.properties.LT == "number") {
+            let marker = newLabel (station.geometry.coordinates, {
+                value: station.properties.LT
+            });
+            marker.addTo(map);
+        }
         // set map view to all stations
         map.fitBounds(overlays.stations.getBounds());
     });
+    
+    
+   
+    // newLabel(...,...).addTo(overlays.temperature)
