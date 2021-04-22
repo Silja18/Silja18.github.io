@@ -36,6 +36,8 @@ let layerControl = L.control.layers({
     "Schneehöhe (cm)":overlays.snowheight,
     "Windgeschwindigkeit (km/h)":overlays.windspeed,
     "Windrichtung":overlays.winddirection,
+}, { 
+    collapsed: false // Kontrolle ist immer ausgeklappt
 }).addTo(map);
 overlays.temperature.addTo(map);
 
