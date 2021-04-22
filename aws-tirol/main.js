@@ -48,12 +48,16 @@ L.control.scale({
 }).addTo(map); 
 
 let newLabel = (coords, options) => {
-    console.log("Koordinaten coords: ", coords);
-    console.log("Optionsobjekt:", options);
-    let marker = L.marker([coords[1], coords[0]]);
-    console.log("Marker:", marker);
-    return marker;
-};
+    let label = L.divIcon({
+        html: `<div>${options.value}</div>`,
+        className:"text-label",
+    })
+  //  console.log("Koordinaten coords: ", coords);
+  //  console.log("Optionsobjekt:", options);
+    // let marker = L.marker([coords[1], coords[0]]);
+    // console.log("Marker:", marker);
+    // return marker;
+// };
 
 let awsUrl = 'https://wiski.tirol.gv.at/lawine/produkte/ogd.geojson';
 
