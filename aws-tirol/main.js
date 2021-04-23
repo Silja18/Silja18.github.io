@@ -59,6 +59,8 @@ let getColor = (value, colorRamp) => {
     return "black";
 };
 
+let getDirections = (value, )
+
 // Die new label Funktion holt sich die Koordinaten usw, definiert die Farbe, ...
 // get Funktion holt sich die Farbe
 let newLabel = (coords, options) => {
