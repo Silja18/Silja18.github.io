@@ -135,7 +135,8 @@ fetch(awsUrl)
                     value: station.properties.RH.toFixed(0),
                     colors: COLORS.// hier die richtige Farbpallette einfügen,
                     station: station.properties.name
-                })
+                });
+                marker.addTo(overlays.humidity);
             }
         }
         
