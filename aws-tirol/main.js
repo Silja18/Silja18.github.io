@@ -10,12 +10,12 @@ let map = L.map("map", {
 });
 
 let overlays = {
-stations: L.featureGroup(),
-temperature: L.featureGroup(),
-snowheight: L.featureGroup(),
-windspeed: L.featureGroup(),
-winddirection: L.featureGroup(),
-humidity: L.featureGroup(),
+    stations: L.featureGroup(),
+    temperature: L.featureGroup(),
+    snowheight: L.featureGroup(),
+    windspeed: L.featureGroup(),
+    winddirection: L.featureGroup(),
+    humidity: L.featureGroup(),
 };
 console.log(overlays.stations)
 
@@ -24,7 +24,7 @@ let layerControl = L.control.layers({
     "BasemapAT.grau": basemapGray,
     "BasemapAT.orthofoto": L.tileLayer.provider('BasemapAT.orthofoto'),
     "BasemapAT.surface": L.tileLayer.provider('BasemapAT.surface'),
-     // https://leafletjs.com/reference-1.7.1.html#tilelayer
+    // https://leafletjs.com/reference-1.7.1.html#tilelayer
     "BasemapAT.overlay+ortho": L.layerGroup([
         // https://leafletjs.com/reference-1.7.1.html#layergroup
         L.tileLayer.provider('BasemapAT.orthofoto'),
@@ -33,12 +33,12 @@ let layerControl = L.control.layers({
     ])
 }, {
     "Wetterstationen Tirol": overlays.stations,
-    "Temperatur (°C)":overlays.temperature,
-    "Schneehöhe (cm)":overlays.snowheight,
-    "Windgeschwindigkeit (km/h)":overlays.windspeed,
-    "Windrichtung (°)":overlays.winddirection,
+    "Temperatur (°C)": overlays.temperature,
+    "Schneehöhe (cm)": overlays.snowheight,
+    "Windgeschwindigkeit (km/h)": overlays.windspeed,
+    "Windrichtung (°)": overlays.winddirection,
     "Relative Luftfeuchtigkeit (%)": overlays.humidity,
-}, { 
+}, {
     collapsed: false // Kontrolle ist immer ausgeklappt
 }).addTo(map);
 overlays.temperature.addTo(map);
@@ -47,10 +47,10 @@ overlays.temperature.addTo(map);
 
 L.control.scale({
     imperial: false
-}).addTo(map); 
+}).addTo(map);
 
 //Rainviewer Plugin
-let rainviewer = L.control.rainviewer({ 
+let rainviewer = L.control.rainviewer({
     position: 'bottomleft',
     nextButtonText: '>',
     playStopButtonText: 'Play/Stop',
@@ -63,12 +63,12 @@ let rainviewer = L.control.rainviewer({
 rainviewer.addTo(map);
 
 let getColor = (value, colorRamp) => {
- //console.log("Wert:", value, "Palette:", colorRamp);
- for (let rule of colorRamp) {
-         if (value >= rule.min && value < rule.max) {
-             return rule.col;
-         }
-     }
+    //console.log("Wert:", value, "Palette:", colorRamp);
+    for (let rule of colorRamp) {
+        if (value >= rule.min && value < rule.max) {
+            return rule.col;
+        }
+    }
     return "black";
 };
 
@@ -126,20 +126,20 @@ fetch(awsUrl)
             </ul>
             <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
             `);
-           // hier haben wir die Marker gestylt:
+            // hier haben wir die Marker gestylt:
             marker.addTo(overlays.stations);
             if (typeof station.properties.HS == "number") {
-                let marker = newLabel (station.geometry.coordinates, {
+                let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.HS.toFixed(0),
                     colors: COLORS.snowheight,
                     station: station.properties.name
                 });
                 marker.addTo(overlays.snowheight);
             }
-         
+
 
             if (typeof station.properties.WG == "number") {
-                let marker = newLabel (station.geometry.coordinates, {
+                let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.WG.toFixed(0),
                     colors: COLORS.windspeed,
                     station: station.properties.name
@@ -148,7 +148,7 @@ fetch(awsUrl)
             }
 
             if (typeof station.properties.LT == "number") {
-                let marker = newLabel (station.geometry.coordinates, {
+                let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.LT.toFixed(1),
                     colors: COLORS.temperature,
                     station: station.properties.name
@@ -156,7 +156,7 @@ fetch(awsUrl)
                 marker.addTo(overlays.temperature);
             }
             if (typeof station.properties.RH == "number") {
-                let marker = newLabel (station.geometry.coordinates, {
+                let marker = newLabel(station.geometry.coordinates, {
                     value: station.properties.RH.toFixed(0),
                     colors: COLORS.humidity,
                     station: station.properties.name
@@ -164,7 +164,7 @@ fetch(awsUrl)
                 marker.addTo(overlays.humidity);
             }
             if (typeof station.properties.WR == "letter") {
-                let marker = newLabel (station.properties.coordinates, {
+                let marker = newLabel(station.properties.coordinates, {
                     value: station.properties.WR.directions,
                     colors: DIRECTIONS,
                     station: station.properties.name
@@ -172,11 +172,11 @@ fetch(awsUrl)
                 marker.addTo(overlays.winddirection);
             }
         }
-        
+
         // set map view to all stations
         map.fitBounds(overlays.stations.getBounds());
     });
-    
-    
-   
-    // newLabel(...,...).addTo(overlays.temperature)
+
+
+
+// newLabel(...,...).addTo(overlays.temperature)
