@@ -66,6 +66,7 @@ let getDirections = (value, directionRamp) => {
             return rule.dir;
         }
     }
+    return "black";
 }
 
 // Die new label Funktion holt sich die Koordinaten usw, definiert die Farbe, ...
@@ -111,7 +112,7 @@ fetch(awsUrl)
             </ul>
             <a target="_blank" href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/tag/${station.properties.plot}.png">Grafik</a>
             `);
-           // hier haben wir die Market gestylt:
+           // hier haben wir die Marker gestylt:
             marker.addTo(overlays.stations);
             if (typeof station.properties.HS == "number") {
                 let marker = newLabel (station.geometry.coordinates, {
@@ -151,9 +152,10 @@ fetch(awsUrl)
             if (typeof station.properties.WR == "number") {
                 let marker = newLabel (station.properties.coordinates, {
                     value: station.properties.WR.directions,
-                    colors: COLORS.,
+                    colors: DIRECTIONS,
                     station: station.properties.name
                 });
+                marker.addTo(overlays.winddirection);
             }
         }
         
