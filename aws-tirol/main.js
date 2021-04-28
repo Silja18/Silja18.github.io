@@ -50,8 +50,7 @@ L.control.scale({
 }).addTo(map); 
 
 //Rainviewer Plugin
-
-let rainviewer = L.control.rainviwer({ 
+let rainviewer = L.control.rainviewer({ 
     position: 'bottomleft',
     nextButtonText: '>',
     playStopButtonText: 'Play/Stop',
