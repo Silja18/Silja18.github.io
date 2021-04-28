@@ -36,7 +36,7 @@ let layerControl = L.control.layers({
     "Temperatur (°C)":overlays.temperature,
     "Schneehöhe (cm)":overlays.snowheight,
     "Windgeschwindigkeit (km/h)":overlays.windspeed,
-    "Windrichtung":overlays.winddirection,
+    "Windrichtung (°)":overlays.winddirection,
     "Relative Luftfeuchtigkeit (%)": overlays.humidity,
 }, { 
     collapsed: false // Kontrolle ist immer ausgeklappt
