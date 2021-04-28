@@ -148,6 +148,13 @@ fetch(awsUrl)
                 });
                 marker.addTo(overlays.humidity);
             }
+            if (typeof station.properties.WR == "number") {
+                let marker = newLabel (station.properties.coordinates, {
+                    value: station.properties.WR.directions,
+                    colors: COLORS.,
+                    station: station.properties.name
+                });
+            }
         }
         
         // set map view to all stations
