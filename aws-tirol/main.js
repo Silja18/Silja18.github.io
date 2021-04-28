@@ -51,7 +51,7 @@ L.control.scale({
 
 //Rainviewer Plugin
 
-L.control.rainviwer({ 
+let rainviewer = L.control.rainviwer({ 
     position: 'bottomleft',
     nextButtonText: '>',
     playStopButtonText: 'Play/Stop',
@@ -60,7 +60,8 @@ L.control.rainviwer({
     opacitySliderLabelText: "Opacity:",
     animationInterval: 500,
     opacity: 0.5
-}).addTo(map);
+});
+rainviewer.addTo(map);
 
 let getColor = (value, colorRamp) => {
  //console.log("Wert:", value, "Palette:", colorRamp);
