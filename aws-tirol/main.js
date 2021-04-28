@@ -149,7 +149,7 @@ fetch(awsUrl)
                 });
                 marker.addTo(overlays.humidity);
             }
-            if (typeof station.properties.WR == "letters") {
+            if (typeof station.properties.WR == "letter") {
                 let marker = newLabel (station.properties.coordinates, {
                     value: station.properties.WR.directions,
                     colors: DIRECTIONS,
