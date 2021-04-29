@@ -70,13 +70,25 @@ let drawBusStop = (geojsonData) => {
         }
 
         let drawBusLines = (geojsonData) => {
-            onEachFeaturee: (feature, layer) => {
-                layer.bindPopup(`<strong>${feature.properties.LINE_NAME}</strong>
-                <hr>
-                Line: ${feature.properties.LINE_NAME}`)
-            }
+            console.log('Bus Lines: ', geojsonData);
+            L.geoJson(geojsonData, {
+                style: (feature) => {
+                    let col = "red";
+                    if (feature.properties.LINE_NAME == 'Blue Line') {
+                        col = "blue";
+                    }
+                    return {
+                        color: col
+                    }
+                },
+                onEachFeature: (feature, layer) => {
+                    layer.bindPopup(`<strong>${feature.properties.LINE_NAME}</strong>
+                    <hr>
+                    von ${feature.properties.FROM_NAME}<br>
+                    nach ${feature.properties.TO_NAME}`)
+                }
+            }).addTo(overlays.busLines);
         }
-
 
 for (let config of OGDWIEN) {
     console.log("config:", config.data);
@@ -86,18 +98,10 @@ for (let config of OGDWIEN) {
             console.log("Data:", geojsonData);
             if (config.title == "Haltestellen Vienna Sightseeing") {
                 drawBusStop(geojsonData);
-            }
+                if (config.title == "Liniennetz Vienna Sightseeing") {
+                drawBusLines(geojsonData);
+            } else if (config.title == "Liniennetz Vienna Sightseeing") {
+                drawBusLines(geojsonData);
         })
 }
 
-for (let config of OGDWIEN) {
-    console.log("config:", config.data);
-    fetch(config.data)
-        .then(response => response.json())
-        .then(geojsonData => {
-            console.log("Data:", geojsonData);
-            if (config.title == "Liniennetz Vienna Sightseeing") {
-                drawBusLines(geojsonData);
-            }
-        })
-}
