@@ -18,7 +18,7 @@ let overlays = {
     busLines: L.featureGroup(),
     busStops: L.markerClusterGroup(),
     pedAreas: L.featureGroup(),
-    sights: L.markerClusterGroup()
+    sights: L.featureGroup()
 };
 
 // Karte initialisieren und auf Wiens Wikipedia Koordinate blicken
