@@ -31,6 +31,10 @@ let map = L.map("map", {
     ]
 });
 
+//MiniMap 
+var mapformini = new L.tileLayer.provider("BasemapAT.grau");
+var miniMap = new L.Control.MiniMap(mapformini).addTo(map);
+
 // Kartenhintergründe und Overlays zur Layer-Control hinzufügen
 let layerControl = L.control.layers({
     "basemap.at Standard": baselayers.standard,
@@ -159,3 +163,5 @@ let drawBusStop = (geojsonData) => {
 
 // Leaflet hash einfügen
 new L.Hash(map);
+
+// L.tileLayer.provider muss ein neuer Layer sein, Mini Mpa Plug in im rechten unteren Eck einbauen
