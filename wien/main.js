@@ -174,13 +174,13 @@ L.control.reachability({
     // add settings/options here
     apiKey: '5b3ce3597851110001cf6248b8d6b6ede5124788bbc04a5ceb51108f',
     drawButtonContent: '',
-    drawButtonStyleClass: 'fa fa-pencil',
+    drawButtonStyleClass: 'fa fa-pencil-alt',
     deleteButtonContent: '',
     deleteButtonStyleClass: 'fa fa-trash',
     distanceButtonContent: '',
     distanceButtonStyleClass: 'fa fa-road',
     timeButtonContent: '',
-    timeButtonStyleClass: 'fa fa-clock-o',
+    timeButtonStyleClass: 'fa fa-clock',
     travelModeButton1Content: '',
     travelModeButton1StyleClass: 'fa fa-car',
     travelModeButton2Content: '',
@@ -188,5 +188,5 @@ L.control.reachability({
     travelModeButton3Content: '',
     travelModeButton3StyleClass: 'fa fa-male',
     travelModeButton4Content: '',
-    travelModeButton4StyleClass: 'fa fa-wheelchair-alt'
+    travelModeButton4StyleClass: 'fa fa-wheelchair'
 }).addTo(map);
