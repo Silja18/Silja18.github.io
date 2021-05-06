@@ -165,6 +165,6 @@ new L.Hash(map);
 var miniMap = new L.Control.MiniMap(
     L.tileLayer.provider("BasemapAT.grau"), {
         toggleDisplay: true,
-        minimized: true
+            minimized: true
     }
-)addTo.(map);
+).addTo(map);
