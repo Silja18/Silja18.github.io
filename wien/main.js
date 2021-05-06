@@ -158,4 +158,4 @@ let drawBusStop = (geojsonData) => {
         }
 
 // Leaflet hash einfügen
-L.Hash(map);
+new L.Hash(map);
