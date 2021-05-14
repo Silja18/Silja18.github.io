@@ -65,7 +65,7 @@ nav.onchange = (evt) => {
 console.log(document.querySelector("#map"));
 // <option value="Silja18">Omarama</option>
 
-new L.hash(map);
+
 
 // Minimap
 var miniMap = new L.Control.MiniMap(
