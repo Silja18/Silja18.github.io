@@ -181,3 +181,11 @@ fetch(awsUrl)
 
 
 // newLabel(...,...).addTo(overlays.temperature)
+
+var miniMap = new L.Control.MiniMap(
+    L.tileLayer.provider('BasemapAT.grau'), {
+        toggleDisplay: true,
+        minimized: true,
+    }
+).addTo(map);
+
