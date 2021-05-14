@@ -169,14 +169,7 @@ var miniMap = new L.Control.MiniMap(
     }
 ).addTo(map);
 
-// Intervalle stylen
-let styleIntervals = (feature) => {
-    console.log(feature.properties);
-    console.log(feature.properties.Measure);
-}
-
-
-//Reachability plugin
+//Reachability plugin und Intervalle stylen
 
 let styleIntervals = (feature) => {
     let color = "";
