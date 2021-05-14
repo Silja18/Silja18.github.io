@@ -172,6 +172,7 @@ var miniMap = new L.Control.MiniMap(
 // Intervalle stylen
 let styleIntervals = (feature) => {
     console.log(feature.properties);
+    console.log(feature.properties.Measure);
 }
 
 
