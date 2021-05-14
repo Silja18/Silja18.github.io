@@ -13,6 +13,7 @@ console.log(stop.lat);
 console.log(stop.lng);
 console.log(wikipedia); */
 const map = L.map("map", {
+    fullscreenControl: true,
     center: [ stop.lat, stop.lng ], 
     zoom: 13,
     layers: [
@@ -63,3 +64,11 @@ nav.onchange = (evt) => {
 //consle.log(document,querySelector("#map")); um die Konsole zu checken
 console.log(document.querySelector("#map"));
 // <option value="Silja18">Omarama</option>
+
+// Minimap
+var miniMap = new L.Control.MiniMap(
+    L.tileLayer.provider("BasemapAT.basemap"), {
+        toggleDisplay: true,
+        minimized: false
+    }
+).addTo(map);
