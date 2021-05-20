@@ -49,6 +49,8 @@ const elevationControl = L.control.elevation({
 }).addTo(map);
 
 const drawTrack = (nr) => {
+    elevationControl.clear();
+    overlays.tracks.clearLayers();
     console.log('Track:', nr);
     let gpxTrack = new L.GPX(`tracks/${nr}.gpx`, {
         async: true,
