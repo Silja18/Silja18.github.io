@@ -44,14 +44,39 @@ overlays.tracks.addTo(map);
 
 const drawTrack = (nr) => {
     console.log('Track:', nr);
-    let gepxTrack = new L.GPX(`tracks/${nr}.gpx`, {
+    let gpxTrack = new L.GPX(`tracks/${nr}.gpx`, {
         async: true,
-        arker_options: {
+        marker_options: {
             startIconUrl: `icons/number_${nr}.png`,
             endIconUrl: 'icons/finish.png',
             shadowUrl: null,
+          },
+          polyline_options: {
+              color: 'black',
+              dashArray: [2, 5],
           }
     }).addTo(overlays.tracks);
+    gpxTrack.on("loaded", () => {
+        console.log('loaded gpx');
+        map.fitBounds(gpxTrack.getBounds());
+        console.log('Track name: ', gpxTrack.get_name());
+        console.log('Track name: ', gpxTrack.get_distance());
+        gpxTrack.bindPopup(`
+        <h3>${gpxTrack.get_name()}</h3>
+        <ul>
+            <li>Streckenlänge: ${gpxTrack.get_distance()} m</li>
+            <li>tiefster Punkt: ${gpxTrack.get_elevation_min()} m</li>
+            <li>höchster Punkt: ${gpxTrack.get_elevation_max()} m</li>
+            <li>Höhenmeter bergauf: ${gpxTrack.get_elevation_gain()} m</li>
+            <li>Höhenmeter bergab: ${gpxTrack.get_elevation_loss()} m</li>
+        </ul>
+        `);
+    // TODO: popup with
+    // Name, height, max_height, min_height, total_dist
+    // get_name()
+    // get_elevation_max()
+    // get_elevation_min()
+    // get_distance()
 }
 
 const selectedTrack = 14;
