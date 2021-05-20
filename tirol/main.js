@@ -59,7 +59,6 @@ const drawTrack = (nr) => {
     gpxTrack.on("loaded", () => {
         console.log('loaded gpx');
         map.fitBounds(gpxTrack.getBounds());
-        console.log('Track name: ', gpxTrack.get_name());
         console.log('Track name: ', gpxTrack.get_distance());
         gpxTrack.bindPopup(`
         <h3>${gpxTrack.get_name()}</h3>
@@ -71,13 +70,9 @@ const drawTrack = (nr) => {
             <li>Höhenmeter bergab: ${gpxTrack.get_elevation_loss()} m</li>
         </ul>
         `);
-    // TODO: popup with
-    // Name, height, max_height, min_height, total_dist
-    // get_name()
-    // get_elevation_max()
-    // get_elevation_min()
-    // get_distance()
-}
-
-const selectedTrack = 14;
+        // TODO: popup with
+        // Name, max_height, min_height, total_dist
+    });
+};
+const selectedTrack = 7;
 drawTrack(selectedTrack);
