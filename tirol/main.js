@@ -97,3 +97,8 @@ for (let track of BIKETIROL) {
     //console.log(track);
     pulldown.innerHTML += `<option ${selected} value="${track.nr}">${track.nr} : ${track.etappe}</option>`;
 }
+
+pulldown.onchange = () => {
+    console.log('changed!!!!', pulldown.value);
+    drawTrack(pulldown.value);
+};
