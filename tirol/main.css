@@ -33,3 +33,6 @@ header a {
     border: 1px solid gray;
 }
 
+#map path.lime-theme.elevation-polyline {
+    stroke-opacity: 0;
+}
