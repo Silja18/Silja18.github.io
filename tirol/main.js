@@ -57,21 +57,58 @@ const drawWikipedia = (bounds) => {
     console.log(bounds);
     let url = `https://secure.geonames.org/wikipediaBoundingBoxJSON?north=${bounds.getNorth()}&south=${bounds.getSouth()}&east=${bounds.getEast()}&west=${bounds.getWest()}&username=Silja18&lang=de&maxRows=30`;
     console.log(url);
+
+    let icons = {
+        adm1st: "wikipedia_administration.png",
+        adm2nd: "wikipedia_administration.png",
+        adm3rd: "wikipedia_administration.png",
+        airport: "wikipedia_helicopter.png",
+        city: "wikipedia_smallcity.png",
+        glacier: "wikipedia_glacier-2.png",
+        landmark: "wikipedia_landmark.png",
+        railwaystation: "wikipedia_train.png",
+        river: "wikipedia_river-2.png",
+        mountain: "wikipedia_mountains.png",
+        waterbody: "wikipedia_lake.png",
+        default: "wikipedia_information.png",
+    };
+    
  // URL bei geonames.org aufrufen und JSO-Daten abholen
  fetch(url).then(
     response => response.json()
 ).then(jsonData => {
     console.log(jsonData);
 
-    for (let article of jsonData.genoames) {
-        let mrk = L.marker([article.lat, article.lng]);
+    // Artikel Marker erzeugen
+    for (let article of jsonData.geonames) {
+        // Welches Icon soll verwendet werden?
+        if (icons[article.feature]) {
+            // ein bekanntes
+        } else {
+            // user generisches Info-Icon
+            article.feature = "default";
+        }
+
+        let mrk = L.marker([article.lat, article.lng],{
+            icon: L.icon({
+                iconUrl: `icons/${icons[article.feature]}`
+            })
+        });
         mrk.addTo(overlays.wikipedia);
-        // Popup erzeugen
+
+        // Bild definieren 
         let img = "";
         if (article.thumnailImg) {
             img = `<img src="${article.thumbnailImg}" alt="thumnail">`;
-            
         }
+        // Popup definieren
+        mrk.bindPopup(`
+        <small>${article.feature}</small>
+        <h3>${article.title} (${article.elevation}m)</h3>
+        ${img}
+        <p>${article.summary}</p>
+        <a target="Wikipedia" href="https://${article.wikipediaUrl}">Wikipedia-Artikel</a>
+        `);
     }
 });
 };
