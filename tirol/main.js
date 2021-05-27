@@ -51,6 +51,13 @@ const elevationControl = L.control.elevation({
     theme: 'lime-theme',
 }).addTo(map);
 
+// Wikipedia Artikel zeichnen
+
+const drawWikipedia = (bounds) => {
+    console.log(bounds);
+};
+
+
 const drawTrack = (nr) => {
     elevationControl.clear();
     overlays.tracks.clearLayers();
@@ -83,6 +90,8 @@ const drawTrack = (nr) => {
         `);
         // TODO: popup with
         // Name, max_height, min_height, total_dist
+        // Wikipedia Artikel zeichnen
+        drawWikipedia(gpxTrack.getBounds());
     });
     elevationControl.load(`tracks/${nr}.gpx`);
 };
