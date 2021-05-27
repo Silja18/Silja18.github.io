@@ -171,6 +171,16 @@ console.log('biketirol json:', BIKETIROL);
 
 const updateTexts = (nr) => {
     console.log(nr);
+    for (let etappe of BIKETIROL) {
+       // console.log(etappe);
+        // ist es die aktuelle Etappe
+        if (etappe.nr == nr) {
+            console.log("unsere Etappe", etappe);
+            for (let key in etappe) {
+                console.log("key:", key, "value:", etappe[key]);
+            }
+        }
+    }
 };
 
 let pulldown = document.querySelector("#pulldown");
