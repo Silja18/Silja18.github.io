@@ -151,7 +151,6 @@ const drawTrack = (nr) => {
         // TODO: popup with
         // Name, max_height, min_height, total_dist
         // Wikipedia Artikel zeichnen
-        drawWikipedia(gpxTrack.getBounds());
     });
     elevationControl.load(`tracks/${nr}.gpx`);
 };
@@ -176,3 +175,9 @@ pulldown.onchange = () => {
     //console.log('changed!!!!', pulldown.value);
     drawTrack(pulldown.value);
 };
+
+map.on("zoomend moveend", () => {
+//     Wikipedia Artikel zeichnen
+drawWikipedia(map.getBounds());
+});
+
