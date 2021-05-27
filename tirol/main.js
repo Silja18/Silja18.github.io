@@ -57,13 +57,26 @@ const drawWikipedia = (bounds) => {
     console.log(bounds);
     let url = `https://secure.geonames.org/wikipediaBoundingBoxJSON?north=${bounds.getNorth()}&south=${bounds.getSouth()}&east=${bounds.getEast()}&west=${bounds.getWest()}&username=Silja18&lang=de&maxRows=30`;
     console.log(url);
-};
-
-fetch(url).then(
+ // URL bei geonames.org aufrufen und JSO-Daten abholen
+ fetch(url).then(
     response => response.json()
 ).then(jsonData => {
-    console.log(jsonData)
+    console.log(jsonData);
+
+    for (let article of jsonData.genoames) {
+        let mrk = L.marker([article.lat, article.lng]);
+        mrk.addTo(overlays.wikipedia);
+        // Popup erzeugen
+        let img = "";
+        if (article.thumnailImg) {
+            img = `<img src="${article.thumbnailImg}" alt="thumnail">`;
+            
+        }
+    }
 });
+};
+
+let activeElevationTrack;
 
 const drawTrack = (nr) => {
     elevationControl.clear();
