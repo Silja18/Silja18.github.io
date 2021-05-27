@@ -180,7 +180,7 @@ const updateTexts = (nr) => {
                 console.log("key:", key, "value:", etappe[key]);
                 // gibt es ein Element in HTML mit der ID von "key"?
                 if (document.querySelector(`#text-${key}`)) {
-                    console.log("Juhu", key, etappe[key]);
+                   // console.log("Juhu", key, etappe[key]);
                     document.querySelector(`#text-${key}`).innerHTML = etappe[key];
                 }
             }
